@@ -74,6 +74,14 @@ public class Ticket {
         return reservedAt;
     }
 
+    public void cancel() {
+        if (this.status == TicketStatus.CANCELLED) {
+            return;
+        }
+
+        this.setStatus(TicketStatus.CANCELLED);
+    }
+
     public Set<DomainEvent> allDomainEvents() {
         return Collections.unmodifiableSet(domainEvents);
     }
